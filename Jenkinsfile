@@ -11,7 +11,6 @@ pipeline{
         stage('eks deploy') {
 
 			steps {
-			  sh 'ls ecsdemo-nodejs/'
 			  sh 'aws eks update-kubeconfig --region us-west-1 --name demo'
 			  sh 'kubectl apply -f nodejsdeployment.yaml'
 			  sh 'kubectl apply -f nodejsservice.yaml'
