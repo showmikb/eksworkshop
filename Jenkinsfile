@@ -18,7 +18,7 @@ pipeline{
 			  sh 'kubectl apply -f crystaldeployment.yaml'
 		 	  sh 'kubectl apply -f crystalservice.yaml'
 
-			  sh 'cd ../../ecsdemo-frontend/kubernetes'
+			
 			  sh 'kubectl apply -f frontenddeployment.yaml'
 			  sh 'kubectl apply -f frontendservice.yaml'
 
