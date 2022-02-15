@@ -21,6 +21,10 @@ pipeline{
 			
 			  sh 'kubectl apply -f frontenddeployment.yaml'
 			  sh 'kubectl apply -f frontendservice.yaml'
+			  sh "ELB=$(kubectl get service ecsdemo-frontend -o json | jq -r '.status.loadBalancer.ingress[].hostname')"
+
+			  sh 'curl -m3 -v $ELB'
+
 
 			}
 		}
